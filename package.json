@@ -1,0 +1,30 @@
+{
+  "name": "contentviewer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.799.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "module-alias": "^2.2.2",
+    "morgan": "~1.9.1",
+    "s3-ls": "^3.0.0",
+    "serve-index": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@routes": "routes",
+    "@utils": "utils"
+  }
+}
