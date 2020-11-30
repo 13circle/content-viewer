@@ -8,7 +8,7 @@ const s3BaseUrl = process.env.S3_BASE_URL;
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-  const dir = await s3Handler.listFolders("/Videos");
+  const dir = await s3Handler.listFolders("/");
   res.render("index", { title: "Express", dir });
 });
 
