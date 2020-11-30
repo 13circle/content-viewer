@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
+require("module-alias/register");
+
 /**
  * Module dependencies.
  */
 
-const app = require('../app');
+const app = require('@root/app');
 const debug = require('debug')('contentviewer:server');
 const http = require('http');
 const path = require("path");
