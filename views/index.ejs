@@ -8,8 +8,11 @@
     </script>
   </head>
   <body>
-    <% for(var i = 0; i < dir.folders.length; i++) { %>
-    <h1><%= dir.folders[i] %></h1>
+    <% for(var i in dir.folders) { %>
+    	<strong><%= dir.folders[i] %></strong><br />
     <% } %>
+		<% for(var i in dir.files) { %>
+			<p><%= dir.files[i] %></p><br />
+		<% } %>
   </body>
 </html>
