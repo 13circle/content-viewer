@@ -4,6 +4,7 @@ const AWS = require("aws-sdk");
 const s3ls = require("s3-ls");
 
 require("dotenv").config();
+const s3BaseUrl = process.env.S3_BASE_URL;
 const BUCKET_NAME = process.env.S3_BUCKET_NAME;
 
 const s3 = new AWS.S3();
@@ -13,12 +14,11 @@ async function listFolders(bucketPath) {
     bucket: BUCKET_NAME,
   });
 
-  const { files, folders } = await lister.ls(
-    path.join("Contents", bucketPath)
-  );
+  const { files, folders } = await lister.ls(path.join("Contents", bucketPath));
 
   return {
-    files,
+    prevFolder: path.normalize(path.join("Contents", bucketPath, "..")),
+    files: files.map((f) => s3BaseUrl + f),
     folders,
   };
 }

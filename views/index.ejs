@@ -8,11 +8,12 @@
     </script>
   </head>
   <body>
+    <a href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
     <% for(var i in dir.folders) { %>
-    	<strong><%= dir.folders[i] %></strong><br />
+    	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i] %></a></strong><br />
     <% } %>
 		<% for(var i in dir.files) { %>
-			<p><%= dir.files[i] %></p><br />
+			<p><a href="<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a></p><br />
 		<% } %>
   </body>
 </html>
