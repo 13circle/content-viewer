@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+require("module-alias/register");
+
 const indexRouter = require('@routes/index');
 const usersRouter = require('@routes/users');
 

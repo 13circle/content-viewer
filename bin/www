@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 
-require("module-alias/register");
-
 /**
  * Module dependencies.
  */
 
-const app = require('@root/app');
+const app = require('../app');
 const debug = require('debug')('contentviewer:server');
 const http = require('http');
 const path = require("path");
 
-require("dotenv").config({ path: path.resolve(process.cwd(), ".env") });
+require("dotenv").config({ path: path.resolve("..", process.cwd(), ".env") });
 
 /**
  * Get port from environment and store in Express.
