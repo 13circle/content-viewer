@@ -1,0 +1,33 @@
+.video-wrapper {
+  width: 100vw;
+  height: fit-content;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.player {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+#video {
+  width: 65vw;
+}
+
+.player-controls {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+select, input {
+  width: 10em;
+  height: 2em;
+}

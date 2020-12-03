@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
     <script>
       //
     </script>
@@ -13,7 +14,7 @@
     	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i] %></a></strong><br />
     <% } %>
 		<% for(var i in dir.files) { %>
-			<p><a href="<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a></p><br />
+			<p><a href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a></p><br />
 		<% } %>
   </body>
 </html>
