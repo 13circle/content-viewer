@@ -19,6 +19,10 @@
   width: 65vw;
 }
 
+#toggle-theater-mode {
+  height: 2em;
+}
+
 .player-controls {
   width: 100%;
   height: fit-content;

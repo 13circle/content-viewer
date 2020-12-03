@@ -1,8 +1,18 @@
 var video = document.getElementById("video");
+var btnTheaterMode = document.getElementById("toggle-theater-mode");
 var playSpeed = document.getElementById("play-speed");
 var skipSpeed = document.getElementById("skip-speed");
 var btnRewind = document.getElementById("skip-rewind");
 var btnForward = document.getElementById("skip-forward");
+
+function toggleTheaterMode(e) {
+  var width = parseInt(video.style.width);
+  if (width === 65 || isNaN(width)) {
+    video.style.width = "100vw";
+  } else {
+    video.style.width = "65vw";
+  }
+}
 
 function multPlaySpeed(e) {
   var value = this.options[this.selectedIndex].value;
@@ -33,6 +43,7 @@ function toggle_play_pause() {
   }
 }
 
+btnTheaterMode.onclick = toggleTheaterMode;
 playSpeed.onchange = multPlaySpeed;
 btnRewind.onclick = skip_rewind;
 btnForward.onclick = skip_forward;
