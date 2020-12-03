@@ -7,7 +7,6 @@ var btnForward = document.getElementById("skip-forward");
 function multPlaySpeed(e) {
   var value = this.options[this.selectedIndex].value;
   video.playbackRate = parseFloat(value);
-  video.play();
 }
 
 function skip_rewind() {
