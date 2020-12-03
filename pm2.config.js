@@ -15,7 +15,7 @@ module.exports = {
 		staging: {
 			user: "ubuntu",
 			host: "3.128.164.186",
-			key: "~/.ssh/id_rsa.pub",
+			key: "~/.ssh/deploy_git_clone_rsa.pub",
 			repo: "git@github.com:13circle/content-viewer.git",
 			ref: "origin/main",
 			path: "/home/ubuntu/deploy",
