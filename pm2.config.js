@@ -17,6 +17,7 @@ module.exports = {
 			host: "3.128.164.186",
 			repo: "git@github.com:13circle/content-viewer.git",
 			ref: "origin/main",
+			ssh_options: "StrictHostKeyChecking=no",
 			path: "/home/ubuntu/deploy",
 			"post-deploy": "yarn && pm2 reload pm2.config.js",
 		},
