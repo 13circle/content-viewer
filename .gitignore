@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# PM2 configuration script
+pm2.config.js
+
