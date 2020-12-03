@@ -13,7 +13,7 @@ module.exports = {
 
 	deploy: {
 		staging: {
-			user: "root",
+			user: "ubuntu",
 			host: "3.128.164.186",
 			repo: "git@github.com:13circle/content-viewer.git",
 			ref: "origin/main",
