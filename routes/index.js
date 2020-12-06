@@ -1,5 +1,6 @@
 const express = require("express");
 const s3Handler = require("@utils/awsS3Handler");
+const axios = require("axios");
 const router = express.Router();
 
 require("dotenv").config();
@@ -7,17 +8,18 @@ require("dotenv").config();
 const s3BaseUrl = process.env.S3_BASE_URL;
 const title = "13circle Content Viewer";
 
-const redirectVideo = (req, res, next) => {
-  if (req.query.path) {
-    if (req.query.path.split(".").pop() === "mp4") {
-      return res.redirect(`/video?uri=${req.query.path}`);
-    }
+const redirectByContentType = (req, res, next) => {
+  const filePath = req.query.path;
+  if (filePath) {
+    const fileExt = filePath.split(".").pop();
+    if (fileExt === "mp4") return res.redirect(`/video?uri=${filePath}`);
+    if (fileExt === "txt") return res.redirect(`/text?uri=${filePath}`);
   }
   next();
 };
 
 /* GET home page. */
-router.get("/", redirectVideo, async (req, res, next) => {
+router.get("/", redirectByContentType, async (req, res, next) => {
   let uri = "/";
   if (req.query.path) {
     uri += req.query.path.replace("Contents", "");
@@ -35,6 +37,12 @@ router.get("/video", async (req, res, next) => {
     return res.render("video", { title, prevFolder, uri });
   }
   return res.send("Error: only MP4 format is available.");
+});
+
+router.get("/text", async (req, res, next) => {
+  const uri = req.query.uri;
+  const txtres = await axios.get(uri);
+  return res.send(txtres.data);
 });
 
 module.exports = router;
