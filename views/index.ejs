@@ -9,6 +9,7 @@
     </script>
   </head>
   <body>
+    <h2>Path: <%= dir.currFolder %></h2>
     <a href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
     <% for(var i in dir.folders) { %>
     	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i] %></a></strong><br />

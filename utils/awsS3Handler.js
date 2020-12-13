@@ -18,6 +18,7 @@ async function listFolders(bucketPath) {
 
   return {
     prevFolder: path.normalize(path.join("Contents", bucketPath, "..")),
+    currFolder: path.normalize(path.join("Contents", bucketPath)),
     files: files.map((f) => s3BaseUrl + f),
     folders,
   };
