@@ -42,7 +42,10 @@ router.get("/video", async (req, res, next) => {
 router.get("/text", async (req, res, next) => {
   const uri = req.query.uri;
   const txtres = await axios.get(uri);
-  return res.send(txtres.data);
+  const { prevFolder } = await s3Handler.listFolders(
+    uri.replace(s3BaseUrl + "Contents", "")
+  );
+  return res.render("text", { title, prevFolder, textData: txtres.data });
 });
 
 module.exports = router;

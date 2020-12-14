@@ -12,7 +12,7 @@
     <h2>Path: <%= dir.currFolder %></h2>
     <a href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
     <% for(var i in dir.folders) { %>
-    	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i] %></a></strong><br />
+    	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i].slice(0, -1).split('/').pop() %></a></strong><br />
     <% } %>
 		<% for(var i in dir.files) { %>
 			<p><a href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a></p><br />
