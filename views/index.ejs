@@ -3,19 +3,39 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/render.js"></script>
     <title><%= title %></title>
-    <script>
-      //
-    </script>
   </head>
   <body>
     <h2>Path: <%= dir.currFolder %></h2>
-    <a href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
-    <% for(var i in dir.folders) { %>
-    	<strong><a href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i].slice(0, -1).split('/').pop() %></a></strong><br />
-    <% } %>
-		<% for(var i in dir.files) { %>
-			<p><a href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a></p><br />
-		<% } %>
+    <table>
+      <thead>
+        <tr>
+          <th class="link_btn">
+            <a class="path_link" href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i in dir.folders) { %>
+          <tr>
+            <td class="link_btn">
+              <strong>
+                <a class="path_link" href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i].slice(0, -1).split('/').pop() %></a>
+              </strong>
+            </td>
+          </tr>
+        <% } %>
+        <% for(var i in dir.files) { %>
+          <tr>
+            <td class="link_btn">
+              <strong>
+                <a class="path_link" href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a>
+              </strong>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
   </body>
 </html>
