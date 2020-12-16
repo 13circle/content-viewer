@@ -14,7 +14,7 @@
       </a>
       <% for(var i = 1; i < dir.currFolder.length; i++) { %>
         &nbsp;&gt;&nbsp;
-        <a href="/?path=<%= dir.currFolder[i] %>">
+        <a href="/?path=<%= dir.currFolder[i] %>/">
           <%= dir.currFolder[i].split("/").pop() %>
         </a>
       <% } %>
@@ -23,7 +23,7 @@
       <thead>
         <tr>
           <th class="link_btn">
-            <a class="path_link" href="/?path=<%= dir.prevFolder %>">&lt; BACK</a><br />
+            <a class="path_link" href="/?path=<%= dir.prevFolder %>/">&lt; BACK</a><br />
           </th>
         </tr>
       </thead>

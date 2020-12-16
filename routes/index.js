@@ -10,10 +10,16 @@ const title = "13circle Content Viewer";
 
 const redirectByContentType = (req, res, next) => {
   const filePath = req.query.path;
-  if (filePath) {
-    const fileExt = filePath.split(".").pop();
-    if (fileExt === "mp4") return res.redirect(`/video?uri=${filePath}`);
-    if (fileExt === "txt") return res.redirect(`/text?uri=${filePath}`);
+  if(filePath) {
+    if (
+      filePath.charAt(0) !== "/" &&
+      filePath.charAt(filePath.length - 1) !== "/"
+    ) {
+      const fileExt = filePath.split(".").pop();
+      if (fileExt === "mp4") return res.redirect(`/video?uri=${filePath}`);
+      else if (fileExt === "txt") return res.redirect(`/text?uri=${filePath}`);
+      else return res.redirect(filePath);
+    }
   }
   next();
 };
@@ -31,7 +37,7 @@ router.get("/", redirectByContentType, async (req, res, next) => {
     currFolderStr += "/" + d;
     currFolderArr[i] = currFolderStr;
   });
-  dir.currFolder = currFolderArr;
+  dir.currFolder = currFolderArr.slice(0, -1);
   res.render("index", { title, dir });
 });
 
