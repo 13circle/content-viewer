@@ -7,7 +7,18 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h2>Path: <%= dir.currFolder %></h2>
+    <h3>
+      Path:&nbsp;
+      <a href="/?path=<%= dir.currFolder[0] %>">
+        <%= dir.currFolder[0].slice(1) %>
+      </a>
+      <% for(var i = 1; i < dir.currFolder.length; i++) { %>
+        &nbsp;&gt;&nbsp;
+        <a href="/?path=<%= dir.currFolder[i] %>">
+          <%= dir.currFolder[i].split("/").pop() %>
+        </a>
+      <% } %>
+    </h3>
     <table>
       <thead>
         <tr>

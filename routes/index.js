@@ -25,6 +25,13 @@ router.get("/", redirectByContentType, async (req, res, next) => {
     uri += req.query.path.replace("Contents", "");
   }
   const dir = await s3Handler.listFolders(uri);
+  const currFolderArr = dir.currFolder.split("/");
+  let currFolderStr = "";
+  currFolderArr.forEach((d, i) => {
+    currFolderStr += "/" + d;
+    currFolderArr[i] = currFolderStr;
+  });
+  dir.currFolder = currFolderArr;
   res.render("index", { title, dir });
 });
 
