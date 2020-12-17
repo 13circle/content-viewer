@@ -24,6 +24,13 @@ const redirectByContentType = (req, res, next) => {
   next();
 };
 
+const getPrevFolder = async (uri) => {
+  const { prevFolder } = await s3Handler.listFolders(
+    uri.replace(s3BaseUrl + "Contents", "")
+  );
+  return prevFolder;
+};
+
 /* GET home page. */
 router.get("/", redirectByContentType, async (req, res, next) => {
   let uri = "/";
@@ -43,9 +50,7 @@ router.get("/", redirectByContentType, async (req, res, next) => {
 
 router.get("/video", async (req, res, next) => {
   const uri = req.query.uri;
-  const { prevFolder } = await s3Handler.listFolders(
-    uri.replace(s3BaseUrl + "Contents", "")
-  );
+  const prevFolder = await getPrevFolder(uri);
   if (uri.split(".").pop() === "mp4") {
     return res.render("video", { title, prevFolder, uri });
   }
@@ -55,9 +60,7 @@ router.get("/video", async (req, res, next) => {
 router.get("/text", async (req, res, next) => {
   const uri = req.query.uri;
   const txtres = await axios.get(uri);
-  const { prevFolder } = await s3Handler.listFolders(
-    uri.replace(s3BaseUrl + "Contents", "")
-  );
+  const prevFolder = await getPrevFolder(uri);
   return res.render("text", { title, prevFolder, textData: txtres.data });
 });
 
