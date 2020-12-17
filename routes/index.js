@@ -18,7 +18,7 @@ const redirectByContentType = (req, res, next) => {
       const fileExt = filePath.split(".").pop();
       if (fileExt === "mp4") return res.redirect(`/video?uri=${filePath}`);
       else if (fileExt === "txt") return res.redirect(`/text?uri=${filePath}`);
-      else return res.redirect(filePath);
+      else return res.redirect(`/file?uri=${filePath}`);
     }
   }
   next();
@@ -62,6 +62,12 @@ router.get("/text", async (req, res, next) => {
   const txtres = await axios.get(uri);
   const prevFolder = await getPrevFolder(uri);
   return res.render("text", { title, prevFolder, textData: txtres.data });
+});
+
+router.get("/file", async (req, res, next) => {
+  const uri = req.query.uri;
+  const prevFolder = await getPrevFolder(uri);
+  return res.render("file", { title, prevFolder, uri });
 });
 
 module.exports = router;
