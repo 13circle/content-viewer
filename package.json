@@ -9,6 +9,7 @@
   "dependencies": {
     "aws-sdk": "^2.799.0",
     "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -17,6 +18,7 @@
     "http-errors": "~1.6.3",
     "module-alias": "^2.2.2",
     "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
     "s3-ls": "^3.0.0",
     "serve-index": "^1.9.1"
   },
