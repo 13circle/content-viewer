@@ -8,6 +8,10 @@ require("dotenv").config();
 const s3BaseUrl = process.env.S3_BASE_URL;
 const title = "13circle Content Viewer";
 
+if(!s3BaseUrl) {
+  throw Error("No environment variable S3_BASE_URL");
+}
+
 const redirectByContentType = (req, res, next) => {
   const filePath = req.query.path;
   if(filePath) {
