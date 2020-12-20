@@ -49,7 +49,7 @@ router.get("/", redirectByContentType, async (req, res, next) => {
     currFolderArr[i] = currFolderStr;
   });
   dir.currFolder = currFolderArr.slice(0, -1);
-  res.render("index", { title, dir });
+  res.render("main", { title, dir });
 });
 
 router.get("/video", async (req, res, next) => {
