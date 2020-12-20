@@ -3,10 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/userForm.css" />
+  <style>
+    .input_wrapper label {
+      width: 10em;
+    }
+  </style>
   <title><%= title %></title>
 </head>
 <body>
-  <p>User Information Page</p>
-  <p>(<%= isNew ? "Registration" : "Edit" %>)</p>
+  <div class="form_container">
+    <div class="vertical_wrapper">
+      <form id="user_form" isnew="<%= isNew %>">
+        <div class="input_wrapper_sol">
+          <h2>User Registration</h2>
+        </div>
+        <div class="input_wrapper">
+          <label for="user_email">E-mail</label>
+          <input type="email" id="user_email" />
+        </div>
+        <div class="input_wrapper">
+          <label for="user_password">Password</label>
+          <input type="password" id="user_password" />
+        </div>
+        <div class="input_wrapper">
+          <label for="user_password_confirm">Password (confirm)</label>
+          <input type="password" id="user_password_confirm" />
+        </div>
+        <div class="input_wrapper_sol">
+          <% if(isNew) { %>
+            <button id="btn_submit" type="submit">REGISTER</button>
+          <% } else { %>
+            <button id="btn_submit" type="submit">SAVE</button>
+          <% } %>
+        </div>
+        <div class="input_wrapper_sol">
+          <button id="btn_cancel" type="button">CANCEL</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/javascripts/handleUserInfo.js"></script>
 </body>
 </html>
