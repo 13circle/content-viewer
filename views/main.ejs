@@ -7,46 +7,50 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h3>
-      Path:&nbsp;
-      <a href="/?path=<%= dir.currFolder[0] %>">
-        <%= dir.currFolder[0].slice(1) %>
-      </a>
-      <% for(var i = 1; i < dir.currFolder.length; i++) { %>
-        &nbsp;&gt;&nbsp;
-        <a href="/?path=<%= dir.currFolder[i] %>/">
-          <%= dir.currFolder[i].split("/").pop() %>
-        </a>
-      <% } %>
-    </h3>
-    <table id="file_explorer">
-      <thead>
-        <tr>
-          <th class="link_btn">
-            <a class="path_link" href="/?path=<%= dir.prevFolder %>/">&lt; BACK</a><br />
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(var i in dir.folders) { %>
-          <tr>
-            <td class="link_btn">
-              <strong>
-                <a class="path_link" href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i].slice(0, -1).split('/').pop() %></a>
-              </strong>
-            </td>
-          </tr>
-        <% } %>
-        <% for(var i in dir.files) { %>
-          <tr>
-            <td class="link_btn">
-              <strong>
-                <a class="path_link" href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a>
-              </strong>
-            </td>
-          </tr>
-        <% } %>
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="content_wrapper">
+        <h3 id="file_path">
+          Path:&nbsp;
+          <a href="/?path=<%= dir.currFolder[0] %>">
+            <%= dir.currFolder[0].slice(1) %>
+          </a>
+          <% for(var i = 1; i < dir.currFolder.length; i++) { %>
+            &nbsp;&gt;&nbsp;
+            <a href="/?path=<%= dir.currFolder[i] %>/">
+              <%= dir.currFolder[i].split("/").pop() %>
+            </a>
+          <% } %>
+        </h3>
+        <table id="file_explorer">
+          <thead>
+            <tr>
+              <th class="link_btn">
+                <a class="path_link" href="/?path=<%= dir.prevFolder %>/">&lt; BACK</a><br />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i in dir.folders) { %>
+              <tr>
+                <td class="link_btn">
+                  <strong>
+                    <a class="path_link" href="/?path=<%= dir.folders[i] %>"><%= dir.folders[i].slice(0, -1).split('/').pop() %></a>
+                  </strong>
+                </td>
+              </tr>
+            <% } %>
+            <% for(var i in dir.files) { %>
+              <tr>
+                <td class="link_btn">
+                  <strong>
+                    <a class="path_link" href="/?path=<%= dir.files[i] %>"><%= dir.files[i].split("/").pop() %></a>
+                  </strong>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
