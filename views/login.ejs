@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/userForm.css" />
   <title><%= title %></title>
 </head>
 <body>
-  Login Page
+  <div class="form_container">
+    <div class="vertical_wrapper">
+      <form id="user_form" method="POST" action="/users/login">
+        <div class="input_wrapper_sol">
+          <h2>Log In</h2>
+        </div>
+        <div class="input_wrapper">
+          <label for="user_email">E-mail</label>
+          <input type="email" id="user_email" />
+        </div>
+        <div class="input_wrapper">
+          <label for="user_password">Password</label>
+          <input type="password" id="user_password" />
+        </div>
+        <div class="input_wrapper_sol">
+          <button id="btn_login" type="submit">LOGIN</button>
+        </div>
+        <div class="input_wrapper_sol">
+          <button id="btn_register" type="button">REGISTER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/javascripts/handleLogin.js"></script>
 </body>
 </html>
