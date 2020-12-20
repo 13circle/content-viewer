@@ -9,18 +9,18 @@ a {
   color: #00B7FF;
 }
 
-table {
+#file_explorer {
   border-collapse: collapse;
   width: 85vw;
   background-color: #27282c;
 }
 
-td, th {
+#file_explorer td, #file_explorer th {
   border: 1px solid lime;
   padding: 1em;
 }
 
-td:hover, th:hover {
+#file_explorer td:hover, #file_explorer th:hover {
   cursor: pointer;
   background-color: #444444;
 }
