@@ -12,6 +12,10 @@ if(!s3BaseUrl) {
   throw Error("No environment variable S3_BASE_URL");
 }
 
+const islogin = (req, res, next) => {
+  // TODO: Check login status
+};
+
 const redirectByContentType = (req, res, next) => {
   const filePath = req.query.path;
   if(filePath) {
