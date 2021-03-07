@@ -1,0 +1,7 @@
+node_modules
+logs
+.git
+.gitignore
+.env
+pm2.config.js
+README.md
