@@ -63,3 +63,6 @@ typings/
 # PM2 configuration script
 pm2.config.js
 
+# Extra configuration directory
+config
+
